@@ -13,9 +13,9 @@ app = Flask(__name__)
 
 def get_weather():
 
-    latitude = request.args.get('lat')
-    longitude = request.args.get('lon')
-    key = os.environ.get('API_KEY')
+    latitude = request.args.get('latitude')
+    longitude = request.args.get('longitude')
+    API_KEY = os.environ.get('API_KEY')
 
     # url utilisee pour interroger l'API OpenWeatherMap
     url = f"http://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={API_KEY}&units=metric"
@@ -60,8 +60,7 @@ def get_weather():
             <p><b> Heure du coucher du soleil </b> : {}</p>
             <p><b> Durée de soleil </b> : {}</p>
         """.format(latitude, longitude, city, country, temperature, feels, meteo, descri, wind, sunrise, sunset, daylight)
-        
-        
+            
             
     return jsonify(data)
 
