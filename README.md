@@ -15,9 +15,7 @@
 
 - Pour cela j'ai utilisé flask.
 
-- J'ai ensuite créer un fichier configuration.py qui va se charger de récuperer les variables d'environnements comme la clef API ainsi que la latitude et la longitude.
-
--Puis le fichier j'ai cree Flash_App.py qui contient l'application flask. son code est quand a lui minutieusement commente
+- J'ai d'abord cree l'application Flask_App.py qui contient l'application flask. son code est quand a lui minutieusement commente
 
 ## Automatisation avec les actions GitHub :
   

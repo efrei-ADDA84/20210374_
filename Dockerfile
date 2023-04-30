@@ -8,15 +8,9 @@ RUN pip install flask
 
 RUN pip install requests
 
-ARG LAT
-
-ARG LONG
-
-ARG API_KEY
-
 COPY . .
 
-EXPOSE 5000
+EXPOSE 8081
 
 CMD ["python", "Flash_App.py"]
 
