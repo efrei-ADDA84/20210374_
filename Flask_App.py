@@ -1,10 +1,8 @@
 # Augusta TSAMPI 
 
-
 import os
 import requests
 from fastapi import FastAPI
-from datetime import datetime, timedelta
 
 
 api_key=os.environ.get("API_KEY")
