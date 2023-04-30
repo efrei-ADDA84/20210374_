@@ -33,6 +33,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ secrets.USERNAME }}/tp1_repo:latest   
+          tags: ${{ secrets.TP_ID }}/tp2_repo:0.0.3   
           context: . 
 
