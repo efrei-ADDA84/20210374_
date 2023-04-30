@@ -6,16 +6,15 @@ import json
 from flask import request, jsonify, Flask
 from datetime import datetime, timedelta
 
+API_KEY = os.environ.get('API_KEY')
+
 app = Flask(__name__)
-
 @app.route('/', methods=['GET'])
-
-
 def get_weather():
 
     latitude = request.args.get('latitude')
     longitude = request.args.get('longitude')
-    API_KEY = os.environ.get('API_KEY')
+    # API_KEY = os.environ.get('API_KEY')
 
     # url utilisee pour interroger l'API OpenWeatherMap
     url = f"http://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={API_KEY}&units=metric"
