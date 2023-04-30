@@ -23,6 +23,12 @@ jobs:
         with:
           username: ${{ secrets.TP_ID }}
           password: ${{ secrets.TP2_ACCES }}
+      
+      -
+       name: Ckecking des Lint errors avec Hadolint
+       uses: hadolint/hadolint-action@v3.1.0
+       with:
+        dockerfile: Dockerfile
 
       - 
         name: Set up Docker Buildx
