@@ -1,28 +1,22 @@
-## TSAMPI Augusta 
+# Augusta TSAMPI 
 
-# Librairies utilisees
-import os, requests
-import json
-from flask import request, jsonify, Flask
-from datetime import datetime, timedelta
 
-API_KEY = os.environ.get('API_KEY')
+import os
+import requests
+from fastapi import FastAPI
 
-app = Flask(__name__)
-@app.route('/', methods=['GET'])
-def get_weather():
+api_key=os.environ.get("API_KEY")
 
-    latitude = request.args.get('latitude')
-    longitude = request.args.get('longitude')
-    # API_KEY = os.environ.get('API_KEY')
+app = FastAPI()
 
-    # url utilisee pour interroger l'API OpenWeatherMap
-    url = f"http://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={API_KEY}&units=metric"
+@app.get("/")
+async def read_item(latitude, longitude):
+    url = f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={api_key}"
+    result = requests.get(url)
+    data = result.json()
+
+
     
-    response = requests.get(url)
-    data = response.json()
-    
-
     if response.status_code == 200:
 
        
@@ -60,13 +54,4 @@ def get_weather():
             <p><b> Durée de soleil </b> : {}</p>
         """.format(latitude, longitude, city, country, temperature, feels, meteo, descri, wind, sunrise, sunset, daylight)
             
-            
-    return jsonify(data)
-
-
-
-if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0',port=8081)
-    # host='0.0.0.0' -> Pour accepter la connection avec n'importequel local host
-
-
+    return data
