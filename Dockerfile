@@ -8,6 +8,12 @@ RUN pip install flask
 
 RUN pip install requests
 
+ARG LAT
+
+ARG LONG
+
+ARG API_KEY
+
 COPY . .
 
 EXPOSE 5000
