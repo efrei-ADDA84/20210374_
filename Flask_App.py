@@ -4,6 +4,8 @@
 import os
 import requests
 from fastapi import FastAPI
+from datetime import datetime, timedelta
+
 
 api_key=os.environ.get("API_KEY")
 
@@ -23,9 +25,6 @@ async def read_item(latitude, longitude):
         sunrise = datetime.fromtimestamp(data['sys']['sunrise'])
         sunset = datetime.fromtimestamp(data['sys']['sunset'])
         daylight = sunset-sunrise
-
-        latitude = data['coord']['lat']
-        longitude = data['coord']['lon']
 
         city = data['name']
         country = data['sys']['country']
