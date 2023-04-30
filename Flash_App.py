@@ -7,7 +7,7 @@ from flask import request, jsonify, Flask
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
-app.config.from_object('config.Config')
+app.config.from_object('Configuration.Config')
 
 @app.route('/', methods=['GET'])
 def home():
@@ -57,5 +57,5 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0',port=8081)
-    # host='0.0.0.0' -> accept connection from every host (to connect through a Docker virtual network)
+    # host='0.0.0.0' -> Pour accepter la connection avec n'importequel local host
 
