@@ -22,19 +22,22 @@ def home():
 
         sunrise = datetime.fromtimestamp(data['sys']['sunrise'])
         sunset = datetime.fromtimestamp(data['sys']['sunset'])
+        daylight = sunset-sunrise
 
         latitude = data['coord']['lat']
         longitude = data['coord']['lon']
 
         city = data['name']
-        daylight = sunset-sunrise
+        country = data['sys']['country']
+        
         meteo = data['weather'][0]['main']
         descri = data['weather'][0]['description']
+        
         temperature = data['main']['temperature']
         feels = data['main']['feels_like']
         wind = data['wind']['speed']
-        country = data['sys']['country']
 
+        # Mise en forme de l'affichage en HTML
         html = """
             <h1> Augusta TSAMPI API TP2 - DEVOPS  </h1>
             <p><b> Latitude </b> : """+ str(latitude) +""" °</p>
@@ -51,7 +54,6 @@ def home():
             <p><b> Durée de soleil </b> : """+ str(daylight) +"""</p>"""
             
     return html
-
 
 
 
