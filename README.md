@@ -69,7 +69,10 @@ Dans un deuxieme terminal je lance la requete suivante:
 
 
 ## Sorties
-> 
+Aller a l'adresse 
+> http://192.168.0.24:8081
+ou
+> http://192.168.0.24:8081
 
 
 
