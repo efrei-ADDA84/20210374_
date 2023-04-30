@@ -61,7 +61,8 @@ Dans GitHub on configure deux secrets : notre USERNAME qui correspond a TP_ID  e
 A chaque push sur la branche main, on build et on push l'image sur DockerHub.
 
 Dans un premier teminal je lance la requete suivante:
-> docker run --network host --env LAT="5.902785" --env LONG="102.754175"  --env API_KEY=84baed4a49b8309fc428e7a68dae972d atsugua10/tp1_repo
+> docker pull atsugua10/tp2_repo:0.0.3
+> docker run -p 8081:8081 --env API_KEY=84baed4a49b8309fc428e7a68dae972d atsugua10/tp2_repo:0.0.3
 cette requete a ete lance avec la l'image du tp1 quie j'ai repull
 
 Dans un deuxieme terminal je lance la requete suivante:
