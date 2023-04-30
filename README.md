@@ -75,12 +75,12 @@ Aller a l'adresse
 ou
 > http://192.168.0.24:8081
 
-##Partie optionelle
+## Partie optionelle
 Lint Errors
-> - name: Ckecking des Lint errors avec Hadolint
-      uses: hadolint/hadolint-action@v3.1.0
-      with:
-        dockerfile: Dockerfile
+ name: Ckecking des Lint errors avec Hadolint
+ uses: hadolint/hadolint-action@v3.1.0
+ with:
+       dockerfile: Dockerfile
 
 
 
