@@ -15,7 +15,7 @@
 
 - J'ai utiliser le module Python fastAPI pour transformer mon wrapper en API. 
 
-- J'ai d'abord cree l'application Flask_App.py qui contient l'application flask. son code est quand a lui minutieusement commente
+- J'ai d'abord cree l'application Flask_App.py qui contient l'application FastApi. son code est quand a lui minutieusement commente
 
 ## Automatisation avec les actions GitHub :
   
