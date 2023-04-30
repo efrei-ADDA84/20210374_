@@ -68,7 +68,7 @@ Sortie:
 on recupere l'image depuis le repositorie
 > docker pull atsugua10/tp1_repo
 
-- Lien du repo GitHub : 
+- Lien du repo GitHub : https://github.com/efrei-ADDA84/20210374_/blob/TP1
 
 - Lien du repo DockerHub : https://hub.docker.com/repository/docker/atsugua10/tp1_repo/general
 
