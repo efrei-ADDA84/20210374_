@@ -19,13 +19,17 @@ def home():
     if response.status_code == 200:
 
         data = response.json() # La donnee convertie est direcetemnt convertie en Json
+        
+        latitude =  os.environ.get('LAT') 
+        longitude = os.environ.get('LONG') 
+        api_key = os.environ.get('API_KEY') 
 
         sunrise = datetime.fromtimestamp(data['sys']['sunrise'])
         sunset = datetime.fromtimestamp(data['sys']['sunset'])
         daylight = sunset-sunrise
 
-        latitude = data['coord']['lat']
-        longitude = data['coord']['lon']
+#         latitude = data['coord']['lat']
+#         longitude = data['coord']['lon']
 
         city = data['name']
         country = data['sys']['country']
