@@ -15,7 +15,7 @@ ARG API_KEY
 
 COPY . .
 
-CMD ["uvicorn", "Flask_App:app", "--port", "8081", "--host", "0.0.0.0", "--reload"]
+CMD ["uvicorn", "App:app", "--port", "8081", "--host", "0.0.0.0", "--reload"]
 
 
 
