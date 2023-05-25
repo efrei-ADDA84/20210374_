@@ -1,0 +1,57 @@
+2023.05.08 01:37:40 INFO  Started: Metals version 0.11.12 in workspace 'C:\Users\Augusta\OneDrive - Efrei\School\M1 App- BDM\S8\Devops\TP1-Augusta\20210374_' for client Visual Studio Code 1.77.3.
+May 08, 2023 1:37:40 AM org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+INFO: Flyway Community Edition 9.16.3 by Redgate
+May 08, 2023 1:37:40 AM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: See release notes here: https://rd.gt/416ObMi
+May 08, 2023 1:37:40 AM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: 
+May 08, 2023 1:37:41 AM org.flywaydb.core.internal.database.base.BaseDatabaseType createDatabase
+INFO: Database: jdbc:h2:file:C:\Users\Augusta\OneDrive - Efrei\School\M1 App- BDM\S8\Devops\TP1-Augusta\20210374_\.metals\metals (H2 2.1)
+May 08, 2023 1:37:41 AM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory allAppliedMigrations
+INFO: Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+May 08, 2023 1:37:41 AM org.flywaydb.core.internal.command.DbValidate validate
+INFO: Successfully validated 4 migrations (execution time 00:00.028s)
+May 08, 2023 1:37:41 AM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+INFO: Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+May 08, 2023 1:37:41 AM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+INFO: Current version of schema "PUBLIC": << Empty Schema >>
+May 08, 2023 1:37:41 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "1 - Create tables"
+May 08, 2023 1:37:41 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "2 - Server discovery"
+May 08, 2023 1:37:41 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "3 - Jar symbols"
+May 08, 2023 1:37:41 AM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema "PUBLIC" to version "4 - Fingerprints"
+May 08, 2023 1:37:41 AM org.flywaydb.core.internal.command.DbMigrate logSummary
+INFO: Successfully applied 4 migrations to schema "PUBLIC", now at version v4 (execution time 00:00.120s)
+2023.05.08 01:37:42 INFO  time: initialize in 1.37s
+May 08, 2023 1:37:47 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1
+2023.05.08 01:37:47 WARN  Build server is not auto-connectable.
+2023.05.08 01:37:47 WARN  no build tool detected in workspace 'C:\Users\Augusta\OneDrive - Efrei\School\M1 App- BDM\S8\Devops\TP1-Augusta\20210374_'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.05.08 01:37:47 WARN  no build target for: C:\Users\Augusta\Data Engineering\Projet\PeaceState_Project\Alert\src\main\scala\Main.scala
+2023.05.08 01:37:58 INFO  no build target found for C:\Users\Augusta\Data Engineering\Projet\PeaceState_Project\Alert\src\main\scala\Main.scala. Using presentation compiler with project's scala-library version: 3.2.2
+2023.05.12 11:22:31 INFO  Shutting down server
+2023.05.12 11:22:31 INFO  shutting down Metals
+2023.05.12 11:22:31 INFO  Exiting server
+2023.05.25 08:38:00 INFO  Started: Metals version 0.11.12 in workspace 'C:\Users\Augusta\OneDrive - Efrei\School\M1 App- BDM\S8\Devops\TP1-Augusta\20210374_' for client Visual Studio Code 1.78.2.
+May 25, 2023 8:38:01 AM org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+INFO: Flyway Community Edition 9.16.3 by Redgate
+May 25, 2023 8:38:01 AM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: See release notes here: https://rd.gt/416ObMi
+May 25, 2023 8:38:01 AM org.flywaydb.core.internal.license.VersionPrinter printVersion
+INFO: 
+May 25, 2023 8:38:01 AM org.flywaydb.core.internal.database.base.BaseDatabaseType createDatabase
+INFO: Database: jdbc:h2:file:C:\Users\Augusta\OneDrive - Efrei\School\M1 App- BDM\S8\Devops\TP1-Augusta\20210374_\.metals\metals (H2 2.1)
+May 25, 2023 8:38:01 AM org.flywaydb.core.internal.command.DbValidate validate
+INFO: Successfully validated 4 migrations (execution time 00:00.030s)
+May 25, 2023 8:38:01 AM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+INFO: Current version of schema "PUBLIC": 4
+May 25, 2023 8:38:01 AM org.flywaydb.core.internal.command.DbMigrate logSummary
+INFO: Schema "PUBLIC" is up to date. No migration necessary.
+2023.05.25 08:38:01 INFO  time: initialize in 0.88s
+2023.05.25 08:38:04 WARN  Build server is not auto-connectable.
+2023.05.25 08:38:04 WARN  no build tool detected in workspace 'C:\Users\Augusta\OneDrive - Efrei\School\M1 App- BDM\S8\Devops\TP1-Augusta\20210374_'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+May 25, 2023 8:53:44 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
