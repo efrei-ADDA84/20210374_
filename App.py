@@ -1,18 +1,30 @@
-# Augusta TSAMPI 
-
 import os
+
 import requests
-from fastapi import FastAPI
+
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
 
 
-api_key=os.environ.get("API_KEY")
+@app.route('/')
 
-app = FastAPI()
+def get_weather():
 
-@app.get("/")
-async def read_item(lat, lon):
-    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}"
-    result = requests.get(url)
-    data = result.json()
-            
-    return data
+    lat = request.args.get('lat')
+
+    lon = request.args.get('lon')
+
+    key = os.environ.get('API_KEY')
+
+    url = f'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={key}&units=metric'
+
+    response = requests.get(url)
+
+    data = response.json()
+
+    return jsonify(data)
+
+if __name__ == '__main__':
+
+    app.run(host='0.0.0.0', port=8080)
