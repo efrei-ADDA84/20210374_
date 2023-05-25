@@ -2,4 +2,4 @@
 
 ## Travaux Pratiques DEVOPS
 
-Chaque TP se trouve respectivement dans les branches 1 et 2 
+Chaque TP se trouve respectivement dans les branches 1, 2 et 3
