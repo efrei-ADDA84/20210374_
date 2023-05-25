@@ -80,6 +80,7 @@ Voici une explication étape par étape :
     - Étape 4 : "Deploy to Azure Container Instances" - Cette étape utilise l'action azure/aci-deploy@v1 pour déployer l'image Docker sur Azure Container Instances (ACI). Elle spécifie le groupe de ressources (secrets.RESOURCE_GROUP), le nom DNS de l'instance (devops-20210374), l'image à déployer (${{ secrets.REGISTRY_LOGIN_SERVER }}/20210374:${{ github.sha }}), les informations d'identification du registre ACR, le nom de l'instance (20210374), et l'emplacement ('france south').
 
 Ces étapes combinées permettent de construire et de déployer automatiquement une image Docker sur Azure Container Instances à chaque "push" sur la branche spécifiée.
+
 -----------------------------------------------------------------------------------------------------------
 
 ## Application
