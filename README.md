@@ -1,91 +1,62 @@
 # 20210374 - Augusta TSAMPI 
 ---------------------------------------------------------------
 
-# DEVOPS - TP2 :
+# DEVOPS - TP3 :
 
 ## Objectifs
-- Configurer un workflow Github Action
-- Transformer un wrapper en API
-- Publier automatiquement a chaque push sur Docker Hub
-- Mettre à disposition son image (format API) sur DockerHub
 - Mettre à disposition son code dans un repository Github
+- Mettre à disposition son image (format API) sur Azure Container Registry (ACR) using
+Github Actions
+- Deployer sur Azure Container Instance (ACI) using Github Actions
 ---------------------------------------------------------------
 
-## Transformation wrapper en API :
-
-- J'ai utiliser le module Python fastAPI pour transformer mon wrapper en API. 
-
-- J'ai d'abord cree l'application Flask_App.py qui contient l'application FastApi. son code est quand a lui minutieusement commente
-
-## Automatisation avec les actions GitHub :
+## WORKFLOW
   
-name: TP2 Docker Image 
-
-on:
+on: 
   push:
-    branches:
-      - 'TP2'
+    branches: ["TP3"]
+name: Linux_Container_Workflow
 
 jobs:
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-    
-      - 
-        uses: actions/checkout@v2
-        name: Check out code
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.TP_ID }}
-          password: ${{ secrets.TP2_ACCES }}
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+        # checkout the repo
+        - name: 'Checkout GitHub Action'
+          uses: actions/checkout@main
+          
+        - name: 'Login via Azure CLI'
+          uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+        - name: 'Build and push image'
+          uses: azure/docker-login@v1
+          with:
+            login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+            username: ${{ secrets.REGISTRY_USERNAME }}
+            password: ${{ secrets.REGISTRY_PASSWORD }}
+        - run: |
+            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/20210374:${{ github.sha }}
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/20210374:${{ github.sha }}
 
-      - 
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      -
-        name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: ${{ secrets.TP_ID }}/tp2_repo:0.0.3   
-          context: . 
-
-Dans GitHub on configure deux secrets : notre USERNAME qui correspond a TP_ID  et notre PASSWORD DockerHub qui corresponds a TP2_ACCES.
-
-A chaque push sur la branche main, on build et on push l'image sur DockerHub.
-
-Dans un premier teminal je lance la requete suivante:
- > docker pull atsugua10/tp2_repo:0.0.3
- > docker run -p 8081:8081 --env API_KEY=84baed4a49b8309fc428e7a68dae972d atsugua10/tp2_repo:0.0.3
-
-Dans un deuxieme terminal je lance la requete suivante:
-> curl "http://localhost:8081/?lat=5.902785&lon=102.754175"
+        - name: 'Deploy to Azure Container Instances'
+          uses: 'azure/aci-deploy@v1'
+          with:
+            resource-group: ${{ secrets.RESOURCE_GROUP }}
+            dns-name-label: devops-20210374
+            image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/20210374:${{ github.sha }}
+            registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+            registry-username: ${{ secrets.REGISTRY_USERNAME }}
+            registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+            name: 20210374
+            location: 'france south'
 
 
-## Sorties
-Aller a l'adresse 
-> http://192.168.0.24:8081
-ou
-> http://192.168.0.24:8081
-
-## Partie optionelle
-Lint Errors
- name: Ckecking des Lint errors avec Hadolint
- uses: hadolint/hadolint-action@v3.1.0
- with:
-       dockerfile: Dockerfile
-
-
-
-- Lien du repo GitHub : https://github.com/efrei-ADDA84/20210374_/edit/TP2/
-
-- Lien du repo DockerHub : https://hub.docker.com/repository/docker/atsugua10/tp2_repo/general
+## Interet de l'utilisation d'une Github action pour deployer.
+- On peut configurer des workflows personnalisés qui sont déclenchés automatiquement en fonction d'événements spécifiques tels que les pushs sur une branche ou les pull requests. Ce qui permet de réduire les erreurs humaines et d'accélérer le déploiement en évitant les étapes manuelles
+- Avec GitHub Actions, on peut egalement visualiser et suivre l'état des workflows de déploiement directement dans le référentiel GitHub.
+- une intégration facile avec d'autres outils, une visibilité et une évolutivité 
 
 
 
