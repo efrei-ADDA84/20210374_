@@ -143,8 +143,98 @@ CMD ["python", "App.py"]
 - Le workflow est déclenché lorsqu'il y a un "push" sur la branche "TP3" sur Github.
 
 - Pour exécuter le projet, il suffit d'exécuter dans un terminal la commande: 
- >> curl "http://devops-20210374.francesouth.azurecontainer.io/?lat=5.902785&lon=102.754175"
+ >> curl "http://devops-20210374.francesouth.azurecontainer.io:8081/?lat=5.902785&lon=102.754175"
+--------------------------------------------------------------------------------------------------------------
 
+## Resultat du terminal
+
+```
+StatusCode        : 200
+StatusDescription : OK
+Content           : {
+                      "base": "stations",
+                      "clouds": {
+                        "all": 96
+                      },
+                      "cod": 200,
+                      "coord": {
+                        "lat": 5.9028,
+                        "lon": 102.7542
+                      },
+                      "dt": 1685050940,
+                      "id": 1736405,
+                      "main": {
+                        "feels_like": 29.16...
+RawContent        : HTTP/1.1 200 OK
+                    Connection: close
+                    Content-Length: 715
+                    Content-Type: application/json
+                    Date: Thu, 25 May 2023 21:42:19 GMT
+                    Server: Werkzeug/2.3.4 Python/3.9.11
+
+                    {
+                      "base": "stations",
+                      "clouds"...
+Forms             : {}
+Headers           : {[Connection, close], [Content-Length, 715], [Content-Type, application/json], [Date, Thu, 25 May 2023 21:42:19 GMT]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 715
+
+```
+
+On peut aussi voir le resultat en format Json en suivant ce lien: 
+>> http://devops-20210374.francesouth.azurecontainer.io:8081/?lat=5.902785&lon=102.754175
+
+Resultat:
+```
+{
+  "base": "stations",
+  "clouds": {
+    "all": 96
+  },
+  "cod": 200,
+  "coord": {
+    "lat": 5.9028,
+    "lon": 102.7542
+  },
+  "dt": 1685050940,
+  "id": 1736405,
+  "main": {
+    "feels_like": 29.16,
+    "grnd_level": 983,
+    "humidity": 76,
+    "pressure": 1010,
+    "sea_level": 1010,
+    "temp": 26.89,
+    "temp_max": 26.89,
+    "temp_min": 26.89
+  },
+  "name": "Jertih",
+  "sys": {
+    "country": "MY",
+    "sunrise": 1685055206,
+    "sunset": 1685099928
+  },
+  "timezone": 28800,
+  "visibility": 10000,
+  "weather": [
+    {
+      "description": "overcast clouds",
+      "icon": "04n",
+      "id": 804,
+      "main": "Clouds"
+    }
+  ],
+  "wind": {
+    "deg": 153,
+    "gust": 3.05,
+    "speed": 2.98
+  }
+}
+```
 
 ---------------------------------------------------------------------------------------------------------------------------
 
