@@ -15,7 +15,7 @@ def get_weather():
 
     lon = request.args.get('lon')
 
-    key = os.environ.get('API_KEY')
+    key = "84baed4a49b8309fc428e7a68dae972d"
 
     url = f'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={key}&units=metric'
 
@@ -27,4 +27,4 @@ def get_weather():
 
 if __name__ == '__main__':
 
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=80)
