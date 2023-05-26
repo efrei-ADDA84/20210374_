@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-# 20210374_ - Augusta TSAMPI
-
-## Travaux Pratiques DEVOPS
-
-Chaque TP se trouve respectivement dans les branches 1, 2 et 3
-=======
 # 20210374 - Augusta TSAMPI 
 ---------------------------------------------------------------
 
@@ -82,7 +75,7 @@ Voici une explication étape par étape :
 - Étapes du workflow :
 
     - Étape 1 : "Checkout GitHub Action" - Cette étape récupère les fichiers du référentiel GitHub.
-    -  Étape 2 : "Login via Azure CLI" - Cette étape utilise l'action azure/login@v1 pour se connecter à Azure en utilisant les informations d'identification stockées dans la variable secrets.AZURE_CREDENTIALS.
+    - Étape 2 : "Login via Azure CLI" - Cette étape utilise l'action azure/login@v1 pour se connecter à Azure en utilisant les informations d'identification stockées dans la variable secrets.AZURE_CREDENTIALS.
     - Étape 3 : "Build and push image" - Cette étape utilise l'action azure/docker-login@v1 pour se connecter au Azure Container Registry (ACR) en utilisant les informations d'identification du registre stockées dans les variables secrets.REGISTRY_LOGIN_SERVER, secrets.REGISTRY_USERNAME et secrets.REGISTRY_PASSWORD. Ensuite, elle construit l'image Docker en utilisant la commande docker build, lui attribue un tag basé sur le hachage du commit (${{ github.sha }}), puis pousse l'image vers le ACR.
     - Étape 4 : "Deploy to Azure Container Instances" - Cette étape utilise l'action azure/aci-deploy@v1 pour déployer l'image Docker sur Azure Container Instances (ACI). Elle spécifie le groupe de ressources (secrets.RESOURCE_GROUP), le nom DNS de l'instance (devops-20210374), l'image à déployer (${{ secrets.REGISTRY_LOGIN_SERVER }}/20210374:${{ github.sha }}), les informations d'identification du registre ACR, le nom de l'instance (20210374), et l'emplacement ('france south').
 
@@ -252,5 +245,3 @@ Resultat:
 - une intégration facile avec d'autres outils, une visibilité et une évolutivité 
 
 
-
->>>>>>> 9e92cb7a48a13ef8b6c97c29a4d1a3b29e2e1ad0
